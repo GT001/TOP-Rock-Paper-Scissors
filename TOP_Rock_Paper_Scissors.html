@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Console Rock, Paper, scissors.</title>
+</head>
+<body>
+
+	<script>
+		function computerPlay () {
+			switch(Math.floor(Math.random()*3)){
+			case 0: return 'Rock';
+			case 1: return 'Paper';
+			default: return 'Scissors';
+			}
+		}
+		
+		function playRound(playerSelection, computerSelection) {
+			var outcome = 0;
+			if (playerSelection === "Rock"){
+					if(computerSelection === "Paper")
+					{outcome = 2;} 
+					else if(computerSelection === "Scissors") 
+					{outcome = 1;}
+					else{ outcome = 0;}
+			} else if(playerSelection === 'Paper'){
+					if(computerSelection === "Scissors")
+					{outcome = 2;} 
+					else if(computerSelection === "Rock") 
+					{outcome = 1;}
+					else{ outcome = 0;}
+			} else {
+					if(computerSelection === "Rock")
+					{outcome = 2;} 
+					else if(computerSelection === "Paper") 
+					{outcome = 1;}
+					else{ outcome = 0;}
+			}
+			if (outcome == 1){
+				return "You Win! " + playerSelection + " beats " + computerSelection;
+			}
+			else if (outcome == 2) {
+				return "You Lose! " + computerSelection + " beats " + playerSelection;
+			} 
+			else {
+				return "Tie!"
+			}
+		}
+		
+		function game(){
+			var rounds = Number(prompt("How many time would you like to play against the Computer?", "5"));
+			var playerSelection;
+			var playerScore = 0;
+			var computerScore = 0;
+			var roundOutcome;
+			for(let i = 0; i < rounds; i++){
+				var entryCheck = true;
+				
+				while(entryCheck){
+					playerSelection = prompt("Please enter Rock, Paper or Scissors to play this round.", "Rock").toLowerCase();
+					playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+					if (playerSelection == "Rock" || playerSelection == "Paper" || playerSelection == "Scissors") {
+						entryCheck = false;
+					}else {alert("Illegal Entry!");}
+				}
+				console.log("Round " + (i+1) + ":" );
+				
+				roundOutcome = playRound(playerSelection, computerPlay());
+				
+				console.log(roundOutcome);
+				console.log("------------");
+
+				if(roundOutcome.substr(0,8)== "You Win!"){
+					playerScore++;
+				} else if(roundOutcome.substr(0,9) == "You Lose!"){
+					computerScore++;
+				}
+			
+			}
+			console.log((playerScore == computerScore ? "Tie Game!" : (playerScore > computerScore ? "Player Wins Game!" : "Computer Wins Game!")));
+		}
+	
+	</script>
+</body>
+</html>
