@@ -1,4 +1,4 @@
-# TOP-Rock-Paper-Scissors
-Odin Project Assignment
-Goal Create the Android Logo using CSS
+# The Odin Project - Rock, Paper, Scissors Console Version
+
+Goal: Create the Android Logo using CSS
 
