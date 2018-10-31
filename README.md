@@ -1,4 +1,4 @@
 # The Odin Project - Rock, Paper, Scissors Console Version
 
-Goal: Create the Android Logo using CSS
+Goal: Create a console version of the game Rock, Paper, Scissors
 
